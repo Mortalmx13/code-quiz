@@ -60,7 +60,7 @@ function displayState() {
     };
     questions.push(theQuestion);
     theQuestion = {
-      question: "waht color is a pineapple",
+      question: "whatt color is a pineapple",
       answer: ["rainbow", "green", "blue","yellow"],
       correct: 3
     };
@@ -72,7 +72,7 @@ function displayState() {
     };
     questions.push(theQuestion);
     theQuestion = {
-      question: "how mnay quarters does it take to make dolar",
+      question: "how many quarters does it take to make dolar",
       answer: ["four", "seven", "eight","five"],
       correct: 0
     };
@@ -158,10 +158,32 @@ quizTitle.addEventListener("click", function () {
 });
 
 answer1Btn.addEventListener("click", function(){
-currentQuestion += "1";
-
+if(currentQuestion <=4){
+  currentQuestion += 1;
+  console.log(currentQuestion);
+  displayQuestion();
+}else{
+  state = 'end';
+  displayState();
+}
+  
 })
+answer2Btn.addEventListener("click", function(){
+currentQuestion += 1;
 console.log(currentQuestion);
+displayQuestion();
+})
+answer3Btn.addEventListener("click", function(){
+currentQuestion += 1;
+console.log(currentQuestion);
+displayQuestion();
+})
+answer4Btn.addEventListener("click", function(){
+currentQuestion += 1;
+console.log(currentQuestion);
+displayQuestion();
+})
+
 
 
 function init() {
