@@ -25,6 +25,7 @@ var answer1Btn = document.querySelector("#answer1");
 var answer2Btn = document.querySelector("#answer2");
 var answer3Btn = document.querySelector("#answer3");
 var answer4Btn = document.querySelector("#answer4");
+var countDown = "75"
 
 
 function displayState() {
@@ -78,7 +79,30 @@ function displayState() {
     questions.push(theQuestion);
   }
   makeQuestions();
+
+
+  
+  
 }
+// function setTime() {
+//   // Sets interval in variable
+//   var timerInterval = setInterval(function() {
+//     countDown--;
+//     timer.textContent = "Timer: " + countDown;
+
+//     if(countDown === 0) {
+//       // Stops execution of action at set interval
+//       clearInterval(timerInterval);
+//       // Calls function to create and append image
+//       sendMessage();
+//     }
+
+//   }, 1000);
+// }
+
+
+
+
 
 
 
@@ -99,26 +123,51 @@ answer4El.textContent = questions[currentQuestion].answer[3];
 
 
 
-function init() {
-  displayState();
-  displayQuestion();
-  
-}
+
 
 // buttons to switch screens
 startBtn.addEventListener("click", function() {
   state = 'quiz';
   displayState();
+ 
+    // Sets interval in variable
+    var timerInterval = setInterval(function() {
+      countDown--;
+      timer.textContent = "Timer: " + countDown;
+  
+      if(countDown === 0) {
+        // Stops execution of action at set interval
+        clearInterval(timerInterval);
+        //state = 'end'
+      }
+  
+    }, 1000);
+  
+  
 });
+
+
+function clearContent(){
+
+}
+
 
 quizTitle.addEventListener("click", function () {
   state = 'end';
   displayState();
 });
 
+answer1Btn.addEventListener("click", function(){
+currentQuestion += "1";
+
+})
+console.log(currentQuestion);
 
 
-
-
-
+function init() {
+  displayState();
+  displayQuestion();
+  
+  
+}
 init();
