@@ -1,14 +1,3 @@
-// GIVEN I am taking a code quiz
-// WHEN I click the start button
-// THEN a timer starts and I am presented with a question
-// WHEN I answer a question
-// THEN I am presented with another question
-// WHEN I answer a question incorrectly
-// THEN time is subtracted from the clock
-// WHEN all questions are answered or the timer reaches 0
-// THEN the game is over
-// WHEN the game is over
-// THEN I can save my initials and my score
 
 var state = 'start';
 
@@ -158,10 +147,10 @@ function clearContent(){
 answer1Btn.addEventListener("click", function(){
 if(currentQuestion <=3){
   if(answer1El.textContent === questions[currentQuestion].correct){
-    wrongOrRight = "right";
+    wrongOrRight.textContent = "Right";
       }
       else{
-    wrongOrRight = "Wrong";
+    wrongOrRight.textContent = "Wrong";
     countDown = countDown - 15;
       }
       console.log(wrongOrRight);
@@ -177,10 +166,10 @@ else{
 answer2Btn.addEventListener("click", function(){
   if(currentQuestion <=3){
     if(answer2El.textContent === questions[currentQuestion].correct){
-      wrongOrRight = "right";
+      wrongOrRight.textContent = "Right";
         }
         else{
-      wrongOrRight = "Wrong";
+      wrongOrRight.textContent = "Wrong";
       countDown = countDown - 15;
         }
         console.log(wrongOrRight);
@@ -196,10 +185,10 @@ answer2Btn.addEventListener("click", function(){
 answer3Btn.addEventListener("click", function(){
   if(currentQuestion <=3){
     if(answer3El.textContent === questions[currentQuestion].correct){
-      wrongOrRight = "right";
+      wrongOrRight.textContent = "Right";
         }
         else{
-      wrongOrRight = "Wrong";
+      wrongOrRight.textContent = "Wrong";
       countDown = countDown - 15;
         }
         console.log(wrongOrRight);
@@ -215,10 +204,10 @@ answer3Btn.addEventListener("click", function(){
 answer4Btn.addEventListener("click", function(){
   if(currentQuestion <=3){
     if(answer4El.textContent === questions[currentQuestion].correct){
-      wrongOrRight = "right";
+      wrongOrRight.textContent = "Right";
         }
         else{
-      wrongOrRight = "Wrong";
+      wrongOrRight.textContent = "Wrong";
       countDown = countDown - 15;
         }
         console.log(wrongOrRight);
