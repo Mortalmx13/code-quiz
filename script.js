@@ -26,6 +26,15 @@ var answer2Btn = document.querySelector("#answer2");
 var answer3Btn = document.querySelector("#answer3");
 var answer4Btn = document.querySelector("#answer4");
 var countDown = "75"
+var finalScore = document.querySelector("#score");
+var wrongOrRight = document.querySelector("#right")
+var answer1El = document.querySelector("#answer1");
+var answer2El = document.querySelector("#answer2");
+var answer3El = document.querySelector("#answer3");
+var answer4El = document.querySelector("#answer4");
+
+
+
 
 
 function displayState() {
@@ -50,31 +59,31 @@ function displayState() {
     var theQuestion = {
       question: "How many digits are in a hex triplet?",
       answer: ["four", "five", "six","seven"],
-      correct: 2
+      correct: "six"
     };
     questions.push(theQuestion);
     theQuestion = {
-      question: "what color is an apple",
+      question: "What color is #000000?",
       answer: ["red", "pink", "white","black"],
-      correct: 0
+      correct: "black"
     };
     questions.push(theQuestion);
     theQuestion = {
-      question: "whatt color is a pineapple",
-      answer: ["rainbow", "green", "blue","yellow"],
-      correct: 3
+      question: "What color is #ffffff?",
+      answer: ["rainbow", "white", "blue","yellow"],
+      correct: "white"
     };
     questions.push(theQuestion);
     theQuestion = {
-      question: "which one is not part of a computer",
-      answer: ["flashdrive", "motherboard", "gpu","cpu"],
-      correct: 0
+      question: "Which one is not part of a computer?",
+      answer: ["printer", "motherboard", "gpu","cpu"],
+      correct: "printer"
     };
     questions.push(theQuestion);
     theQuestion = {
       question: "how many quarters does it take to make dolar",
       answer: ["four", "seven", "eight","five"],
-      correct: 0
+      correct: "four"
     };
     questions.push(theQuestion);
   }
@@ -84,34 +93,12 @@ function displayState() {
   
   
 }
-// function setTime() {
-//   // Sets interval in variable
-//   var timerInterval = setInterval(function() {
-//     countDown--;
-//     timer.textContent = "Timer: " + countDown;
-
-//     if(countDown === 0) {
-//       // Stops execution of action at set interval
-//       clearInterval(timerInterval);
-//       // Calls function to create and append image
-//       sendMessage();
-//     }
-
-//   }, 1000);
-// }
-
-
-
-
 
 
 
 function displayQuestion(){
 
-var answer1El = document.querySelector("#answer1");
-var answer2El = document.querySelector("#answer2");
-var answer3El = document.querySelector("#answer3");
-var answer4El = document.querySelector("#answer4");
+
 quizQuestion.textContent = questions[currentQuestion].question;
 answer1El.textContent = questions[currentQuestion].answer[0];
 answer2El.textContent = questions[currentQuestion].answer[1];
@@ -132,15 +119,25 @@ startBtn.addEventListener("click", function() {
  
     // Sets interval in variable
     var timerInterval = setInterval(function() {
+      // if(state = 'end'){
+      //   score = countDown;
+      //   console.log(score);
+      // }
+      // else 
+       
       countDown--;
       timer.textContent = "Timer: " + countDown;
-  
-      if(countDown === 0) {
+      
+       
+      if(countDown === 0 || state === 'end' ) {
         // Stops execution of action at set interval
         clearInterval(timerInterval);
-        //state = 'end'
+      //displays final score
+        finalScore.textContent ="Your score is: " + countDown;
+        state = 'end';
+      
       }
-  
+      
     }, 1000);
   
   
@@ -152,37 +149,89 @@ function clearContent(){
 }
 
 
-quizTitle.addEventListener("click", function () {
-  state = 'end';
-  displayState();
-});
 
+
+
+
+
+//button click 1
 answer1Btn.addEventListener("click", function(){
-if(currentQuestion <=4){
+if(currentQuestion <=3){
+  if(answer1El.textContent === questions[currentQuestion].correct){
+    wrongOrRight = "right";
+      }
+      else{
+    wrongOrRight = "Wrong";
+    countDown = countDown - 15;
+      }
+      console.log(wrongOrRight);
+      console.log(answer1El.textContent);
   currentQuestion += 1;
-  console.log(currentQuestion);
   displayQuestion();
-}else{
+}
+else{
   state = 'end';
   displayState();
-}
-  
-})
+}})
+//button click 2
 answer2Btn.addEventListener("click", function(){
-currentQuestion += 1;
-console.log(currentQuestion);
-displayQuestion();
-})
+  if(currentQuestion <=3){
+    if(answer2El.textContent === questions[currentQuestion].correct){
+      wrongOrRight = "right";
+        }
+        else{
+      wrongOrRight = "Wrong";
+      countDown = countDown - 15;
+        }
+        console.log(wrongOrRight);
+        console.log(answer2El.textContent);
+    currentQuestion += 1;
+    displayQuestion();
+  }
+  else{
+    state = 'end';
+    displayState();
+  }})
+  //button click 3
 answer3Btn.addEventListener("click", function(){
-currentQuestion += 1;
-console.log(currentQuestion);
-displayQuestion();
-})
+  if(currentQuestion <=3){
+    if(answer3El.textContent === questions[currentQuestion].correct){
+      wrongOrRight = "right";
+        }
+        else{
+      wrongOrRight = "Wrong";
+      countDown = countDown - 15;
+        }
+        console.log(wrongOrRight);
+        console.log(answer3El.textContent);
+    currentQuestion += 1;
+    displayQuestion();
+  }
+  else{
+    state = 'end';
+    displayState();
+  }})
+  //button click 4
 answer4Btn.addEventListener("click", function(){
-currentQuestion += 1;
-console.log(currentQuestion);
-displayQuestion();
-})
+  if(currentQuestion <=3){
+    if(answer4El.textContent === questions[currentQuestion].correct){
+      wrongOrRight = "right";
+        }
+        else{
+      wrongOrRight = "Wrong";
+      countDown = countDown - 15;
+        }
+        console.log(wrongOrRight);
+        console.log(answer4El.textContent);
+    currentQuestion += 1;
+    displayQuestion();
+  }
+  else{
+    state = 'end';
+    displayState();
+  }})
+
+
 
 
 
@@ -190,6 +239,6 @@ function init() {
   displayState();
   displayQuestion();
   
-  
+  console.log(countDown)
 }
 init();
