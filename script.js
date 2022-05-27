@@ -4,6 +4,7 @@ var state = 'start';
 var startEl = document.querySelector("#start");
 var quizEl = document.querySelector("#quiz");
 var endEl = document.querySelector("#end");
+var endBtn = document.querySelector("#end button")
 var startBtn = document.querySelector("#start button");
 var quizTitle = document.querySelector("#quiz #title");
 var timer = document.querySelector("#timer");
@@ -21,11 +22,11 @@ var answer1El = document.querySelector("#answer1");
 var answer2El = document.querySelector("#answer2");
 var answer3El = document.querySelector("#answer3");
 var answer4El = document.querySelector("#answer4");
+var initials = document.querySelector("#textBox");
 
 
 
-
-
+//sends the page to a different one
 function displayState() {
   if (state === 'start') {
     startEl.style.display = 'block';
@@ -42,7 +43,7 @@ function displayState() {
     quizEl.style.display = 'none';
     endEl.style.display = 'block';
   }
-
+//makes the different questions and answeres and choices the correct answer
   function makeQuestions(){
 
     var theQuestion = {
@@ -84,7 +85,7 @@ function displayState() {
 }
 
 
-
+//gets the different answer choices and question
 function displayQuestion(){
 
 
@@ -108,11 +109,7 @@ startBtn.addEventListener("click", function() {
  
     // Sets interval in variable
     var timerInterval = setInterval(function() {
-      // if(state = 'end'){
-      //   score = countDown;
-      //   console.log(score);
-      // }
-      // else 
+      
        
       countDown--;
       timer.textContent = "Timer: " + countDown;
@@ -132,17 +129,6 @@ startBtn.addEventListener("click", function() {
   
 });
 
-
-function clearContent(){
-
-}
-
-
-
-
-
-
-
 //button click 1
 answer1Btn.addEventListener("click", function(){
 if(currentQuestion <=3){
@@ -153,8 +139,7 @@ if(currentQuestion <=3){
     wrongOrRight.textContent = "Wrong";
     countDown = countDown - 15;
       }
-      console.log(wrongOrRight);
-      console.log(answer1El.textContent);
+      
   currentQuestion += 1;
   displayQuestion();
 }
@@ -172,8 +157,7 @@ answer2Btn.addEventListener("click", function(){
       wrongOrRight.textContent = "Wrong";
       countDown = countDown - 15;
         }
-        console.log(wrongOrRight);
-        console.log(answer2El.textContent);
+        
     currentQuestion += 1;
     displayQuestion();
   }
@@ -191,8 +175,7 @@ answer3Btn.addEventListener("click", function(){
       wrongOrRight.textContent = "Wrong";
       countDown = countDown - 15;
         }
-        console.log(wrongOrRight);
-        console.log(answer3El.textContent);
+        
     currentQuestion += 1;
     displayQuestion();
   }
@@ -210,8 +193,6 @@ answer4Btn.addEventListener("click", function(){
       wrongOrRight.textContent = "Wrong";
       countDown = countDown - 15;
         }
-        console.log(wrongOrRight);
-        console.log(answer4El.textContent);
     currentQuestion += 1;
     displayQuestion();
   }
@@ -221,13 +202,14 @@ answer4Btn.addEventListener("click", function(){
   }})
 
 
+  //text box at the end
 
+// endBtn.addEventListener("click", Function(){
 
+// })
 
 function init() {
   displayState();
   displayQuestion();
-  
-  console.log(countDown)
 }
 init();
