@@ -1,1 +1,0 @@
-var displayscore = document.querySelector("#highScore");

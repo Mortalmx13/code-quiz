@@ -8,12 +8,10 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id ="scoreboard">Scoreboard </div>
-  <div  id ="timer">Timer: <span id = "time"></span>
 
-  </div>
   <!-- start screen -->
   <section id="start">
+
     <h2>Start Quiz</h2>
     <button>Begin</button>
   </section>
@@ -21,6 +19,8 @@
 
 <!-- quiz screen -->
   <section id="quiz">
+    <div id ="scoreboard">Scoreboard </div>
+    <div  id ="timer">Timer: <span id = "time"></span> </div>
     <h2 id="title">Questions</h2>
     <div id="questions"></div>
     <button id="answer1"></button>
@@ -34,12 +34,20 @@
 
 <!-- end screen -->
   <section id="end">
+    <div id ="scoreboard">Scoreboard </div>
     <h2>Enter Initials</h2>
     <div id="score"></div>
     <input id="textBox" type="text" />
    
-    <button>Submit</button>
+    <button id="submit">Submit</button>
+    
   </section>
   <script src="./script.js"></script>
+
+
+  <!-- scoreboard -->
+  <section id="scorepage">
+
+  </section>
 </body>
 </html>

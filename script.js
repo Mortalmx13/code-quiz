@@ -4,6 +4,7 @@ var state = 'start';
 var startEl = document.querySelector("#start");
 var quizEl = document.querySelector("#quiz");
 var endEl = document.querySelector("#end");
+var scoreboardEl = document.querySelector("#scorepage")
 var endBtn = document.querySelector("#end button")
 var startBtn = document.querySelector("#start button");
 var quizTitle = document.querySelector("#quiz #title");
@@ -22,8 +23,9 @@ var answer1El = document.querySelector("#answer1");
 var answer2El = document.querySelector("#answer2");
 var answer3El = document.querySelector("#answer3");
 var answer4El = document.querySelector("#answer4");
-var initials = document.querySelector("#textBox");
-
+var initialsInput = document.querySelector("#textBox");
+var submitbtn = document.querySelector("#submit");
+var startoverbtn = document.querySelector("#start-over")
 
 
 //sends the page to a different one
@@ -204,9 +206,23 @@ answer4Btn.addEventListener("click", function(){
 
   //text box at the end
 
-// endBtn.addEventListener("click", Function(){
 
-// })
+submitbtn.addEventListener('click', function(event){
+  event.preventDefault();
+
+  // var data = {
+  //   initials: initialsInput.value,
+  //   score: countDown
+  // };
+
+  // var scores = JSON.parse(localStorage.getItem('score')) || [];
+
+  
+
+  localStorage.setItem(initialsInput.value, countDown);
+  init();
+})
+
 
 function init() {
   displayState();

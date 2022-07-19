@@ -7,7 +7,7 @@
 
 ## Description
 
-this assighment was to make a simple quiz and to keep a timer on it and have a scoreboard at the end to keep all the scores.
+This assighment was to make a simple quiz and to keep a timer on it and have a scoreboard at the end to keep all the scores.
 
 ## Visuals
 ![Code Quiz](./images/Code-Quiz.png)
